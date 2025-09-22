@@ -1,50 +1,212 @@
-# Welcome to your Expo app 👋
+# 🛸 Rick & Morty GraphQL App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern React Native application showcasing **GraphQL**, **Atomic Design**, and **Context State Management** using the Rick and Morty API.
 
-## Get started
+## 📱 Features
 
-1. Install dependencies
+- **Character Browsing**: Explore characters from the Rick and Morty universe
+- **Character Details**: View detailed information including episodes, origin, and location
+- **Favorites System**: Mark characters as favorites with real-time updates
+- **Modern UI**: Beautiful animations and responsive design
+- **Atomic Design**: Clean, reusable component architecture
+
+## 🏗️ Architecture
+
+### **GraphQL with Apollo Client**
+
+- **Server Data**: Fetches characters, episodes, and locations from [Rick and Morty GraphQL API](https://rickandmortyapi.com/graphql)
+- **Apollo Client**: Handles GraphQL queries, caching, and error management
+- **Type Safety**: Full TypeScript integration with generated types
+
+### **Favorites Management**
+
+- **React Context**: Simple and reliable state management for favorites
+- **Real-time Updates**: Instant UI changes across all components
+- **Persistent State**: Favorites maintained during app session
+
+### **Atomic Design System**
+
+```
+📁 components/
+├── 📁 atoms/           → Building blocks (Button, Card, Typography)
+├── 📁 molecules/       → Component combinations (StatusIndicator, CharacterInfo)
+└── 📁 organisms/       → Complete features (CharacterCard, CharactersList)
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** (v16 or higher)
+- **npm** or **yarn**
+- **Expo CLI** (`npm install -g @expo/cli`)
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd graphql-sandbox
+   ```
+
+2. **Install dependencies**
 
    ```bash
    npm install
+   # or
+   yarn install
    ```
 
-2. Start the app
+3. **Start the development server**
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+4. **Run on device/simulator**
+   - **iOS**: Press `i` or scan QR code with Camera app
+   - **Android**: Press `a` or scan QR code with Expo Go app
+   - **Web**: Press `w` to open in browser
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## 📋 Scripts
 
 ```bash
-npm run reset-project
+# Start development server
+npm start
+
+# Start with cache clear
+npm run start:clear
+
+# Run on iOS simulator
+npm run ios
+
+# Run on Android emulator
+npm run android
+
+# Run on web
+npm run web
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🔧 Key Technologies
 
-## Learn more
+- **React Native** - Mobile app framework
+- **Expo** - Development platform and tools
+- **Apollo Client** - GraphQL client with caching
+- **TypeScript** - Type safety and better DX
+- **React Context** - State management for favorites
+- **React Native Reanimated** - Smooth animations
+- **Expo Router** - File-based navigation
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📱 App Structure
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### **Screens**
 
-## Join the community
+- **Home** (`/`) - Character list with search and filtering
+- **Favorites** (`/favorites`) - Favorited characters
+- **Character Detail** (`/character/[id]`) - Detailed character information
 
-Join our community of developers creating universal apps.
+### **State Management**
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+#### **GraphQL (Apollo Client)**
+
+```typescript
+// Fetching characters
+const { loading, error, data } = useQuery(GET_CHARACTERS)
+
+// Character data automatically cached and shared
+```
+
+#### **Favorites (React Context)**
+
+```typescript
+// Using favorites context
+const { toggleFavorite, isFavorite } = useFavorites()
+
+// Toggle favorite status
+const handleFavorite = () => toggleFavorite(characterId)
+
+// Check if character is favorited
+const isCharacterFavorite = isFavorite(characterId)
+```
+
+### **Component Examples**
+
+#### **Atomic Design in Action**
+
+```typescript
+// Organism: Complete character card
+<CharacterCard character={character} />
+
+// Built from:
+// - AnimatedPressable (Atom)
+// - Card (Atom)
+// - CharacterCardContent (Molecule)
+//   - CharacterAvatar (Atom)
+//   - CharacterInfo (Molecule)
+//   - FavoriteButton (Atom)
+```
+
+#### **GraphQL Query**
+
+```typescript
+const GET_CHARACTERS = gql`
+	query GetCharacters($page: Int) {
+		characters(page: $page) {
+			results {
+				id
+				name
+				status
+				species
+				image
+				origin {
+					name
+				}
+			}
+		}
+	}
+`
+```
+
+## 🎨 Design Highlights
+
+- **Smooth Animations**: Page transitions and micro-interactions
+- **Responsive Layout**: Adapts to different screen sizes
+- **Modern Typography**: Consistent text system across components
+- **Glass Morphism**: Subtle background effects and shadows
+- **Color-Coded Status**: Visual indicators for character status (Alive/Dead/Unknown)
+
+## 📝 GraphQL Benefits Demonstrated
+
+1. **Precise Data Fetching** - Request only needed fields
+2. **Single Endpoint** - One URL for all data needs
+3. **Type Safety** - Generated TypeScript types
+4. **Caching** - Automatic response caching with Apollo
+5. **Real-time Updates** - Reactive UI with cache updates
+
+## 🔄 Favorites System Flow
+
+1. **User taps heart** on any character card
+2. **Context updates** favorites Set with character ID
+3. **All components re-render** automatically showing new state
+4. **Favorites page** filters and displays favorited characters
+5. **State persists** throughout app session
+
+## 🚀 Production Ready Features
+
+- **Error Boundaries** - Graceful error handling
+- **Loading States** - Smooth loading experiences
+- **Offline Support** - Apollo cache works offline
+- **Performance** - Optimized FlatList rendering
+- **Accessibility** - Screen reader friendly
+- **Cross Platform** - iOS, Android, and Web ready
+
+---
+
+**Built with ❤️ using GraphQL, Apollo Client, and React Native**
