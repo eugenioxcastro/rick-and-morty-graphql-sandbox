@@ -1,13 +1,12 @@
-# 🛸 Rick & Morty GraphQL App
+# 🛸 Rick & Morty GraphQL Demo App
 
-A modern React Native application showcasing **GraphQL**, **Atomic Design**, and **Context State Management** using the Rick and Morty API.
+A demo React Native application showcasing **GraphQL**, **Atomic Design**, and **Context State Management** using the Rick and Morty API.
 
 ## 📱 Features
 
 - **Character Browsing**: Explore characters from the Rick and Morty universe
 - **Character Details**: View detailed information including episodes, origin, and location
 - **Favorites System**: Mark characters as favorites with real-time updates
-- **Modern UI**: Beautiful animations and responsive design
 - **Atomic Design**: Clean, reusable component architecture
 
 ## 🏗️ Architecture
@@ -23,15 +22,6 @@ A modern React Native application showcasing **GraphQL**, **Atomic Design**, and
 - **React Context**: Simple and reliable state management for favorites
 - **Real-time Updates**: Instant UI changes across all components
 - **Persistent State**: Favorites maintained during app session
-
-### **Atomic Design System**
-
-```
-📁 components/
-├── 📁 atoms/           → Building blocks (Button, Card, Typography)
-├── 📁 molecules/       → Component combinations (StatusIndicator, CharacterInfo)
-└── 📁 organisms/       → Complete features (CharacterCard, CharactersList)
-```
 
 ## 🚀 Getting Started
 
