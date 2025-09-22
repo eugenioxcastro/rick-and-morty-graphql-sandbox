@@ -69,31 +69,6 @@ A modern React Native application showcasing **GraphQL**, **Atomic Design**, and
    - **Android**: Press `a` or scan QR code with Expo Go app
    - **Web**: Press `w` to open in browser
 
-## 📋 Scripts
-
-```bash
-# Start development server
-npm start
-
-# Start with cache clear
-npm run start:clear
-
-# Run on iOS simulator
-npm run ios
-
-# Run on Android emulator
-npm run android
-
-# Run on web
-npm run web
-
-# Type checking
-npm run type-check
-
-# Linting
-npm run lint
-```
-
 ## 🔧 Key Technologies
 
 - **React Native** - Mobile app framework
@@ -174,21 +149,11 @@ const GET_CHARACTERS = gql`
 `
 ```
 
-## 🎨 Design Highlights
-
-- **Smooth Animations**: Page transitions and micro-interactions
-- **Responsive Layout**: Adapts to different screen sizes
-- **Modern Typography**: Consistent text system across components
-- **Glass Morphism**: Subtle background effects and shadows
-- **Color-Coded Status**: Visual indicators for character status (Alive/Dead/Unknown)
-
 ## 📝 GraphQL Benefits Demonstrated
 
 1. **Precise Data Fetching** - Request only needed fields
 2. **Single Endpoint** - One URL for all data needs
 3. **Type Safety** - Generated TypeScript types
-4. **Caching** - Automatic response caching with Apollo
-5. **Real-time Updates** - Reactive UI with cache updates
 
 ## 🔄 Favorites System Flow
 
@@ -197,16 +162,3 @@ const GET_CHARACTERS = gql`
 3. **All components re-render** automatically showing new state
 4. **Favorites page** filters and displays favorited characters
 5. **State persists** throughout app session
-
-## 🚀 Production Ready Features
-
-- **Error Boundaries** - Graceful error handling
-- **Loading States** - Smooth loading experiences
-- **Offline Support** - Apollo cache works offline
-- **Performance** - Optimized FlatList rendering
-- **Accessibility** - Screen reader friendly
-- **Cross Platform** - iOS, Android, and Web ready
-
----
-
-**Built with ❤️ using GraphQL, Apollo Client, and React Native**
