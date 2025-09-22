@@ -2,6 +2,10 @@
 
 A demo React Native application showcasing **GraphQL**, **Atomic Design**, and **Context State Management** using the Rick and Morty API.
 
+## Demo Video
+
+![Demo](./assets/readme/demo.gif)
+
 ## 📱 Features
 
 - **Character Browsing**: Explore characters from the Rick and Morty universe
