@@ -1,6 +1,6 @@
 # 🛸 Rick & Morty GraphQL Demo App
 
-A demo React Native application showcasing **GraphQL**, **Atomic Design**, and **Context State Management** using the Rick and Morty API.
+A demo React Native application showcasing **GraphQL**, and **Context State Management** using the Rick and Morty API.
 
 ## Demo Video
 
