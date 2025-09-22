@@ -31,7 +31,6 @@ A demo React Native application showcasing **GraphQL**, and **Context State Mana
 
 ### Prerequisites
 
-- **Node.js** (v16 or higher)
 - **npm** or **yarn**
 - **Expo CLI** (`npm install -g @expo/cli`)
 
